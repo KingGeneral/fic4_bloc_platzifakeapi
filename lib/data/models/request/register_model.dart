@@ -34,4 +34,9 @@ class RegisterModel {
 
   factory RegisterModel.fromJson(String source) =>
       RegisterModel.fromMap(json.decode(source));
+
+  @override
+  String toString() {
+    return 'RegisterModel(name: $name, email: $email, password: $password, avatar: $avatar)';
+  }
 }

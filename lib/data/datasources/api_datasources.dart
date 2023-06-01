@@ -7,10 +7,11 @@ class ApiDatasources {
   // future reguisterresponsemodel
   Future<RegisterResponseModel> register(RegisterModel registerModel) async {
     final response = await http.post(
-      Uri.parse('https://fic-akatalog.herokuapp.com/api/auth/register'),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
+      Uri.parse('https://api.escuelajs.co/api/v1/users/'),
+      // headers: <String, String>{
+      //   'Content-Type': 'application/json',
+      // },
+      // headers: {'Content-Type': 'application/json'},
       body: registerModel.toMap(),
     );
 
