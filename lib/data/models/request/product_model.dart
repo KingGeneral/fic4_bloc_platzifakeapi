@@ -49,9 +49,4 @@ class ProductModel {
 
   factory ProductModel.fromJson(String source) =>
       ProductModel.fromMap(json.decode(source));
-
-  @override
-  String toString() {
-    return 'ProductModel(title: $title, price: $price, description: $description, categoryId: $categoryId, images: $images)';
-  }
 }
