@@ -1,5 +1,11 @@
+import 'package:fic_akatalog_final/bloc/login/login_bloc.dart';
+import 'package:fic_akatalog_final/bloc/product/create_product/create_product_bloc.dart';
+import 'package:fic_akatalog_final/bloc/product/get_all_product/get_all_product_bloc.dart';
+import 'package:fic_akatalog_final/bloc/profile/profile_bloc.dart';
 import 'package:fic_akatalog_final/bloc/register/register_bloc.dart';
-import 'package:fic_akatalog_final/data/datasources/api_datasources.dart';
+import 'package:fic_akatalog_final/data/datasources/auth_datasources.dart';
+import 'package:fic_akatalog_final/data/datasources/product_datasources.dart';
+import 'package:fic_akatalog_final/presentation/pages/login_page.dart';
 import 'package:fic_akatalog_final/presentation/pages/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,8 +23,20 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => RegisterBloc(apiDatasources: ApiDatasources()),
-        )
+          create: (context) => LoginBloc(AuthDatasources()),
+        ),
+        BlocProvider(
+          create: (context) => RegisterBloc(authDatasources: AuthDatasources()),
+        ),
+        BlocProvider(
+          create: (context) => ProfileBloc(AuthDatasources()),
+        ),
+        BlocProvider(
+          create: (context) => CreateProductBloc(ProductDatasources()),
+        ),
+        BlocProvider(
+          create: (context) => GetAllProductBloc(ProductDatasources()),
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter A Akatalog',
@@ -26,7 +44,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const RegisterPage(),
+        home: const LoginPage(),
       ),
     );
   }
