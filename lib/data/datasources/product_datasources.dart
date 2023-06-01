@@ -9,17 +9,18 @@ class ProductDatasources {
   Future<ProductResponseModel> createProduct(ProductModel productModel) async {
     // var headers = {'Content-Type': 'application/json'};
 
-    print('masuk createProduct');
+    print('createProduct');
+
     final response = await http.post(
       Uri.parse('https://api.escuelajs.co/api/v1/products'),
       // headers: headers,
       body: productModel.toMap(),
     );
 
-    print('masuk');
+    print('=======');
     print(response.body);
 
-    return ProductResponseModel.fromJson(jsonDecode());
+    return ProductResponseModel.fromJson(jsonDecode(response.body));
     // throw UnimplementedError();
   }
 
