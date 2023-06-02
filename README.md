@@ -1,15 +1,18 @@
 # fic_akatalog_final
 
-A new Flutter project AKATALOG.
+Flutter 
+project AKATALOG.
 Dart 2.18
 
 flutter_bloc: ^8.1.3
-flutter_secure_storage: ^8.0.0
 http: 0.13.5
 shared_preferences: ^2.1.1
 
 API
 fakeapi.platzi.com
+- auth : login register
+- view : get-all 
+- product : create read edit
 
 ## Getting Started
 
