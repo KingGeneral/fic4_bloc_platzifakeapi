@@ -73,14 +73,22 @@ class _HomePageState extends State<HomePage> {
               }
               if (state is GetAllProductLoaded) {
                 return ListView.builder(itemBuilder: ((context, index) {
-                  final product = state.listProduct.reversed.toList()[index];
-                  return Card(
-                    child: ListTile(
-                      leading: CircleAvatar(child: Text('${product.price}')),
-                      title: Text(product.title ?? '-'),
-                      subtitle: Text(product.description ?? '-'),
-                    ),
-                  );
+                  if (index >= 0 && index < state.listProduct.length) {
+                    final product = state.listProduct.reversed.toList()[index];
+                    return Card(
+                      child: ListTile(
+                        leading: CircleAvatar(child: Text('${product.price}')),
+                        title: Text(product.title ?? '-'),
+                        subtitle: Text(product.description ?? '-'),
+                      ),
+                    );
+                  } else {
+                    // Penanganan ketika indeks di luar rentang
+                    // return const Text('no data');
+                    return const SizedBox(
+                      height: 1.0,
+                    );
+                  }
                 }));
               }
               return const Text('no data');

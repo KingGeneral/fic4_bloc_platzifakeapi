@@ -1,4 +1,4 @@
-package com.example.fic_akatalog_final
+package com.zonetm.fic_akatalog_final
 
 import io.flutter.embedding.android.FlutterActivity
 
