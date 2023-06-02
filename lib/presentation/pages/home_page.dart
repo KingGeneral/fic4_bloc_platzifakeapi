@@ -99,14 +99,6 @@ class _HomePageState extends State<HomePage> {
                         },
                       ),
                     );
-
-                    // return Card(
-                    //   child: ListTile(
-                    //     leading: CircleAvatar(child: Text('${product.price}')),
-                    //     title: Text(product.title ?? '-'),
-                    //     subtitle: Text(product.description ?? '-'),
-                    //   ),
-                    // );
                   } else {
                     // Penanganan ketika indeks di luar rentang
                     // return const Text('no data');
