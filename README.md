@@ -33,3 +33,6 @@ keytool -genkey -v -keystore %userprofile%\keyflutter\akatalog-keystore.jks -sto
 
 -> Migrate the key to pkcs12
 keytool -importkeystore -srckeystore %userprofile%\keyflutter\akatalog-keystore.jks -destkeystore C:\Users\zonet\keyflutter\akatalog-keystore.jks -deststoretype pkcs12
+
+-> build test
+flutter build apk
