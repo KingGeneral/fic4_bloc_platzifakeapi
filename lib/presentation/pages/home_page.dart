@@ -4,6 +4,7 @@ import 'package:fic_akatalog_final/bloc/profile/profile_bloc.dart';
 import 'package:fic_akatalog_final/data/localsources/auth_local_storage.dart';
 import 'package:fic_akatalog_final/data/models/request/product_model.dart';
 import 'package:fic_akatalog_final/presentation/pages/login_page.dart';
+import 'package:fic_akatalog_final/presentation/pages/product_detail_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -75,13 +76,37 @@ class _HomePageState extends State<HomePage> {
                 return ListView.builder(itemBuilder: ((context, index) {
                   if (index >= 0 && index < state.listProduct.length) {
                     final product = state.listProduct.reversed.toList()[index];
+
                     return Card(
                       child: ListTile(
                         leading: CircleAvatar(child: Text('${product.price}')),
                         title: Text(product.title ?? '-'),
                         subtitle: Text(product.description ?? '-'),
+                        onTap: () {
+                          // convert
+                          final productModel = ProductModel(
+                            title: product.title ?? '-',
+                            description: product.description ?? '-',
+                            price: product.price ?? 0,
+                          );
+                          // tampilan detail produk
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    ProductDetailPage(product: productModel)),
+                          );
+                        },
                       ),
                     );
+
+                    // return Card(
+                    //   child: ListTile(
+                    //     leading: CircleAvatar(child: Text('${product.price}')),
+                    //     title: Text(product.title ?? '-'),
+                    //     subtitle: Text(product.description ?? '-'),
+                    //   ),
+                    // );
                   } else {
                     // Penanganan ketika indeks di luar rentang
                     // return const Text('no data');
