@@ -36,3 +36,6 @@ keytool -importkeystore -srckeystore %userprofile%\keyflutter\akatalog-keystore.
 
 -> build test
 flutter build apk
+
+-> build release
+flutter build appbundle --release
