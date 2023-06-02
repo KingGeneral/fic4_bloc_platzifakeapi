@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   TextEditingController priceController = TextEditingController();
+
   @override
   void initState() {
     context.read<ProfileBloc>().add(GetProfileEvent());
@@ -93,8 +94,11 @@ class _HomePageState extends State<HomePage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) =>
-                                    ProductDetailPage(product: productModel)),
+                              builder: (context) => ProductDetailPage(
+                                product: productModel,
+                                productid: product.id ?? 0,
+                              ),
+                            ),
                           );
                         },
                       ),

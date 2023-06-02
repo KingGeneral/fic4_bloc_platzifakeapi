@@ -38,13 +38,18 @@ class ProductDatasources {
   // future update product
   Future<ProductResponseModel> updateProduct(
       ProductModel productModel, int id) async {
-    // var headers = {'Content-Type': 'application/json'};
+    var headers = {'Content-Type': 'application/json'};
+    final body = jsonEncode(productModel.toMap());
 
     final response = await http.put(
-      Uri.parse('https://api.escuelajs.co/api/v1/products/$id'),
-      // headers: headers,
-      body: productModel.toMap(),
+      Uri.parse('https://api.escuelajs.co/api/v1/products/${id}'),
+      headers: headers,
+      body: body,
     );
+
+    print('=======');
+    print(response.body);
+
     return ProductResponseModel.fromJson(jsonDecode(response.body));
   }
 

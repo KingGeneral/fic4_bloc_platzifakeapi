@@ -1,5 +1,6 @@
 import 'package:fic_akatalog_final/bloc/login/login_bloc.dart';
 import 'package:fic_akatalog_final/bloc/product/create_product/create_product_bloc.dart';
+import 'package:fic_akatalog_final/bloc/product/edit_product/edit_product_bloc.dart';
 import 'package:fic_akatalog_final/bloc/product/get_all_product/get_all_product_bloc.dart';
 import 'package:fic_akatalog_final/bloc/profile/profile_bloc.dart';
 import 'package:fic_akatalog_final/bloc/register/register_bloc.dart';
@@ -36,6 +37,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => GetAllProductBloc(ProductDatasources()),
+        ),
+        BlocProvider(
+          create: (context) => EditProductBloc(ProductDatasources()),
         ),
       ],
       child: MaterialApp(
